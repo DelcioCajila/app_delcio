@@ -1,13 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <title> gerenciamento de biblioteca  </title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema Bibliotecário</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff6a00, #ff9472);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+    }
+    .container-box {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .highlight-title {
+      background-color: #ffe0b2; /* fundo amarelo claro */
+      color: #ff6a00;
+      padding: 1rem 1.5rem;
+      border-radius: 15px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(255, 106, 0, 0.2);
+      margin-bottom: 1.5rem;
+      font-size: 2rem; /* tamanho maior */
+    }
+    .btn-grad {
+      background: linear-gradient(to right, #ff512f, #f09819);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn-grad:hover {
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
-<h1> Bem-vindo a minha pagina principal </h1>
-</body>
+    <div class="container-box">
+      <div class="highlight-title">Sistema Bibliotecário</div>
+      <p>Bem-vindo ao sistema. Clique abaixo para se cadastrar.</p>
+      <a href="{% url 'cadastrar' %}" class="btn btn-grad mt-3">Cadastrar</a>
+    </div>
+  </body>
 </html>
