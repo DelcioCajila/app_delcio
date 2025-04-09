@@ -5,17 +5,25 @@ from django.shortcuts import render
 def pagina_inicial(request): 
    return render (request, 'home.html')
 
-def cadastrar(request): 
-   return render (request, 'cadastrar.html')
+def cadastrar_usuario(request): 
+   return render (request, 'usuario.html')
  
- 
-def eliminar(request): 
-   return render (request, 'eliminar.html')
+def livro(request): 
+   return render (request, 'livro.html')
 
  
-def editar(request): 
-   return render (request, 'editar.html')
+def emprestar(request): 
+   return render (request, 'emprestimo.html')
 
- 
-def atualizar(request): 
-   return render (request, 'atualizar.html')
+
+def devolucao (request): 
+   return render (request, 'devolucao.html')
+
+def reservar (request): 
+   return render (request, 'reserva.html')
+
+
+def relatorio (request): 
+   return render (request, 'relatorio.html')
+
+

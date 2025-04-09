@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatórios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS + Ícones -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 0.875rem;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 2rem 1.5rem;
+      width: 90%;
+      max-width: 600px;
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    .report-option {
+      background-color: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: white;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      text-align: left;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .report-option:hover {
+      background-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .report-option i {
+      margin-right: 8px;
+    }
+
+    .btn-grad {
+      background: linear-gradient(to right, #ff512f, #dd2476);
+      color: white;
+      font-weight: 600;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      width: 100%;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-grad:hover {
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glass-box">
+    <h2><i class="bi bi-graph-up-arrow me-1"></i>Relatórios do Sistema</h2>
+
+    <form method="post">
+      {% csrf_token %}
+
+      <button type="submit" name="tipo" value="livros_disponiveis" class="report-option">
+        <i class="bi bi-book"></i>Livros Disponíveis
+      </button>
+
+      <button type="submit" name="tipo" value="emprestimos_ativos" class="report-option">
+        <i class="bi bi-arrow-left-right"></i>Empréstimos Ativos
+      </button>
+
+      <button type="submit" name="tipo" value="emprestimos_atrasados" class="report-option">
+        <i class="bi bi-exclamation-circle"></i>Empréstimos Atrasados
+      </button>
+
+      <button type="submit" name="tipo" value="reservas_pendentes" class="report-option">
+        <i class="bi bi-clock-history"></i>Reservas Pendentes
+      </button>
+
+      <button type="submit" name="tipo" value="usuarios_ativos" class="report-option">
+        <i class="bi bi-person-check"></i>Usuários Ativos
+      </button>
+
+      <button type="submit" name="tipo" value="livros_mais_emprestados" class="report-option">
+        <i class="bi bi-bar-chart"></i>Livros Mais Emprestados
+      </button>
+
+      <button type="submit" name="tipo" value="multas_acumuladas" class="report-option">
+        <i class="bi bi-cash-stack"></i>Multas Acumuladas
+      </button>
+
+      <button type="submit" class="btn btn-grad">Gerar Relatório</button>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,54 +6,85 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sistema Bibliotecário</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
   <style>
     body {
+      margin: 0;
+      padding: 0;
       background: linear-gradient(135deg, #ff6a00, #ff9472);
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 25px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       text-align: center;
+      padding: 3rem 2.5rem;
+      max-width: 700px;
+      width: 95%;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
-    .container-box {
-      background: white;
-      border-radius: 20px;
-      padding: 3rem;
-      max-width: 500px;
-      width: 90%;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    .glass-box h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      color: #ffffff;
     }
-    .highlight-title {
-      background-color: #ffe0b2; /* fundo amarelo claro */
-      color: #ff6a00;
-      padding: 1rem 1.5rem;
-      border-radius: 15px;
-      font-weight: bold;
-      box-shadow: 0 4px 10px rgba(255, 106, 0, 0.2);
-      margin-bottom: 1.5rem;
-      font-size: 2rem; /* tamanho maior */
-    }
+
     .btn-grad {
       background: linear-gradient(to right, #ff512f, #f09819);
-      color: white;
       border: none;
-      border-radius: 25px;
-      padding: 0.75rem 2rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      transition: 0.3s;
+      color: white;
+      padding: 0.9rem 1.2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 30px;
+      width: 100%;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
     }
+
     .btn-grad:hover {
-      opacity: 0.9;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+
+    .btn-group-custom {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 576px) {
+      .glass-box {
+        padding: 2rem 1.2rem;
+      }
+
+      .glass-box h1 {
+        font-size: 2rem;
+      }
     }
   </style>
 </head>
 <body>
-    <div class="container-box">
-      <div class="highlight-title">Sistema Bibliotecário</div>
-      <p>Bem-vindo ao sistema. Clique abaixo para se cadastrar.</p>
-      <a href="{% url 'cadastrar' %}" class="btn btn-grad mt-3">Cadastrar</a>
-    </div>
-  </body>
-</html>
+
+  <div class="glass-box">
+    <h1><i class="bi bi-journal-bookmark-fill me-2"></i>Sistema Bibliotecário</h1>
+
+    <div class="btn-group-custom">
+      <a href="{% url 'usuario' %}" class="btn btn-grad">Cadastro de Usuário</a>
+      <a href="{% url 'livro' %}" class="btn btn-grad">Cadastro de Livro</a>
+      <a href="{% url 'emprestimo' %}" class="btn btn-grad">Empréstimo de Livro</a>
+      <a href="{% url 'devolucao' %}" class="btn btn-grad">Devolução de Livro</a>
+      <a href="{% url 'reserva' %}" class="btn btn-grad">Reservas</a>
+      <a href="{% url 'relatorio' %}" class="btn btn-grad">Relatórios</a>
